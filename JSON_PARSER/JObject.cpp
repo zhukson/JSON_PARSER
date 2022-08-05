@@ -1,9 +1,12 @@
 #include "JObject.h"
+#include <iostream>
 
 using namespace Json;
 
 #define GET_VALUE(type, val) *((type*) val)
 
+/// @brief serialization function used to convert Json object to string version of Json
+/// @return 
 string JObject::to_string()
 {	
 	void* val = JObject::value();
@@ -28,25 +31,34 @@ string JObject::to_string()
 		os << GET_VALUE(double_t, val);
 		break;
 	case T_LIST:
+	{
 		list_t& list = GET_VALUE(list_t, val);
 		os << '[';
-		for (auto& i : list) {
-			os << i.to_string();
+		for (int i = 0; i < list.size(); ++i) {
+			if (i != list.size() - 1)
+				os << list[i].to_string() << ',';
+			else
+				os << list[i].to_string();
 		}
 		os << ']';
+	}
 		break;
 	case T_DICT:
+	{
 		dict_t& dict = GET_VALUE(dict_t, val);
 		os << '{';
 		for (auto i = dict.begin(); i != dict.end(); ++i) {
 			if (i != dict.begin()) os << ',';
-			os << '\"' << i->first << '\"' << i->second.to_string();
+			os << '\"' << i->first << '\"' << ":" << i->second.to_string();
 		}
-
+		os << '}';
 	}
-	return string();
+	}
+	return os.str();
 }
 
+/// @brief get the value of the current JObject
+/// @return 
 void* JObject::value()
 {
 	switch (m_type) {
@@ -75,8 +87,3 @@ void* JObject::value()
 			return nullptr;
 	}
 }
-
-
-
-
-

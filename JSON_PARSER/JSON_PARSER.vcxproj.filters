@@ -18,7 +18,7 @@
     <ClInclude Include="JObject.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Parser.h">
+    <ClInclude Include="Paser.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -26,10 +26,10 @@
     <ClCompile Include="JObject.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Parser.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Paser.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -129,12 +129,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="JObject.h" />
-    <ClInclude Include="Parser.h" />
+    <ClInclude Include="Paser.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JObject.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Paser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
